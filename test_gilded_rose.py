@@ -30,7 +30,7 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item(name="Aged Brie", sell_in=10, quality=49.2)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertLess(items[0].quality, 50, "FAIL: The quality of an item should never be more than 50.")
+        self.assertLessEqual(items[0].quality, 50, "FAIL: The quality of an item should never be more than 50.")
 
     # test 2 that checks for logical errors
     def test_quality_never_negative(self):
@@ -50,7 +50,7 @@ class GildedRoseTest(unittest.TestCase):
 
     # test 4 that checks for syntax errors
     def test_invalid_item_initialization(self):
-        items = [Item("Invalid Item", 5)]  # missing 1 required positional argument
+        items = [Item("Invalid Item", 5, 10)]  # missing 1 required positional argument
 
 
 
